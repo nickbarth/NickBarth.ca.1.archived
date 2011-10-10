@@ -1,0 +1,7 @@
+%article
+  %span.date
+    = post.created_at.strftime "%B #{post.created_at.day.ordinalize}, %Y in "
+    = link_to post.category, category_path(post.category)
+  %h1= link_to post.title, post
+  %div
+    = markdown  post.body

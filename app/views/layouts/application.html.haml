@@ -1,0 +1,72 @@
+!!! 5
+/[if lt IE 7] <html lang="en" class="no-js ie6">
+/[if IE 7 ]    <html lang="en" class="no-js ie7">
+/[if IE 8 ]    <html lang="en" class="no-js ie8">
+/[if IE 9 ]    <html lang="en" class="no-js ie9">
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+%head
+  %meta{ "charset" => "utf-8" }/
+  = csrf_meta_tag
+  %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
+  %meta{ :name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}/
+  %meta{ :content => "The personal blog of a programmer and web developer Nick Barth.", :name => "description"}/
+  %meta{ :content => "Nick Barth", :name => "author"}/
+  %title= "Nick Barth - Software Developer"
+  = stylesheet_link_tag "application", :media => "all"
+  = javascript_include_tag "modernizr", "respond"
+  = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:extralight,light,regular,bold", :type => "text/css", :rel => "stylesheet"
+  = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Droid+Sans+Mono", :type => "text/css", :rel => "stylesheet"
+%body
+  #tborder
+  .container_12
+    %header
+      #logo.grid_9
+        .logo
+          = link_to "Software Developer", :root, :class => "nick"
+          = link_to "Nick Barth", :root, :class => "tagline"
+      %nav.grid_3
+        %ul#nav
+          %li{ :class => ("active" unless current_page? :work or current_page? :about) }= link_to "Blog", :root
+          %li{ :class => ("active" if current_page? :work) }= link_to "Work", :work
+          %li{ :class => ("active" if current_page? :about) }= link_to "About", :about
+    #main.grid_9
+      - if notice
+        .notice= notice
+      = yield
+    #sidebar.grid_3
+      %h4 About Me
+      %p
+        I'm an agile software developer and entrepreneur who enjoys creating and working  
+        on innovative web based projects and applications.
+      %ul.listnav
+        %li= link_to image_tag("github.png"), "http://github.com/nickbarth/"
+        %li= link_to image_tag("linkedin.png"), "http://linkedin.com/in/barthn/"
+        %li= link_to image_tag("email.png"), "mailto:nick@nickbarth.ca"
+      %h4 Categories
+      %ul.categories
+        - if admin?
+          %li= link_to raw("&raquo; New Post"), create_post_path
+          %li= link_to raw("&raquo; Logout"), logout_path
+          %li &nbsp;
+        - categories.each do |category|
+          %li= link_to raw("&raquo; #{category}"), category_path(category)
+  .clear
+  %footer
+    .container_12
+      %ul#footer.listnav
+        %li
+          = raw("&copy; 2011")
+          = link_to "Nick Barth", :about
+        %li= link_to "Blog", :root
+        %li= link_to "Work", :work
+        %li= link_to "About", :about
+      %ul.listnav.fnav
+        %li= link_to image_tag("github.png"), "http://github.com/nickbarth/"
+        %li= link_to image_tag("linkedin.png"), "http://linkedin.com/in/barthn/"
+        %li= link_to image_tag("email.png"), "mailto:nick@nickbarth.ca"
+  = javascript_include_tag :defaults
+  :javascript
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[1];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));

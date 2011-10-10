@@ -14,7 +14,10 @@ gem 'jquery-rails'
 
 gem 'activeadmin'
 gem 'haml'
+gem 'kaminari'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
 end
