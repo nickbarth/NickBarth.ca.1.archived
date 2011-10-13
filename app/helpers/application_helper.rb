@@ -1,4 +1,9 @@
 module ApplicationHelper
+
+  def pages
+    Page.all
+  end
+
   def categories
     Category.all
   end
@@ -11,4 +16,5 @@ module ApplicationHelper
   def admin?
     false
   end
+
 end

@@ -1,14 +1,14 @@
 ActiveAdmin.register Post do
+
   index do
     column "ID", :id
     column :title do |p|
-      link_to p.title, admin_post_path(p)
+      link_to p.title, edit_admin_post_path(p)
     end
     column :category do |p|
       link_to p.category, admin_category_path(p.category)
     end
     column "Published Date", :created_at
-    default_actions
   end
 
   show do
@@ -27,4 +27,5 @@ ActiveAdmin.register Post do
     end
     f.buttons
   end
+
 end

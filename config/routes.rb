@@ -10,13 +10,10 @@ NickbarthCa::Application.routes.draw do
     end
   end
 
+  resources :categories, :only => [:index, :show]
+
   resources :pages, :only => [:show], :path => "" do
     get ":page" => "pages#show"
-    collection do 
-      get ":name" => "pages#show", :as => :section
-      get ":about" => "pages#show", :as => :about
-      get ":work" => "pages#show", :as => :work
-    end
   end
 
   root :to => 'posts#index'

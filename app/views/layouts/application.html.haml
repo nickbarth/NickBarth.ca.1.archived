@@ -14,8 +14,6 @@
   %title= "Nick Barth - Software Developer"
   = stylesheet_link_tag "application", :media => "all"
   = javascript_include_tag "modernizr", "respond"
-  = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:extralight,light,regular,bold", :type => "text/css", :rel => "stylesheet"
-  = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Droid+Sans+Mono", :type => "text/css", :rel => "stylesheet"
 %body
   #tborder
   .container_12
@@ -26,9 +24,9 @@
           = link_to "Nick Barth", :root, :class => "tagline"
       %nav.grid_3
         %ul#nav
-          %li{ :class => ("active" unless current_page? :work or current_page? :about) }= link_to "Blog", :root
-          %li{ :class => ("active" if current_page? :work) }= link_to "Work", :work
-          %li{ :class => ("active" if current_page? :about) }= link_to "About", :about
+          %li{ :class => ("active" unless current_page? page_path(:work) or current_page? page_path(:about)) }= link_to "Blog", :root
+          - for page in pages
+            %li{ :class => ("active" if current_page? page_path(page)) }= link_to page, page_path(page)
     #main.grid_9
       - if notice
         .notice= notice
@@ -44,10 +42,6 @@
         %li= link_to image_tag("email.png"), "mailto:nick@nickbarth.ca"
       %h4 Categories
       %ul.categories
-        - if admin?
-          %li= link_to raw("&raquo; New Post"), create_post_path
-          %li= link_to raw("&raquo; Logout"), logout_path
-          %li &nbsp;
         - categories.each do |category|
           %li= link_to raw("&raquo; #{category}"), category_path(category)
   .clear
@@ -56,10 +50,10 @@
       %ul#footer.listnav
         %li
           = raw("&copy; 2011")
-          = link_to "Nick Barth", :about
+          = link_to "Nick Barth", page_path(:about)
         %li= link_to "Blog", :root
-        %li= link_to "Work", :work
-        %li= link_to "About", :about
+        %li= link_to "Work", page_path(:work)
+        %li= link_to "About", page_path(:about)
       %ul.listnav.fnav
         %li= link_to image_tag("github.png"), "http://github.com/nickbarth/"
         %li= link_to image_tag("linkedin.png"), "http://linkedin.com/in/barthn/"
