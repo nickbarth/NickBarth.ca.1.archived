@@ -1,5 +1,4 @@
 ActiveAdmin.register Post do
-
   index do
     column "ID", :id
     column :title do |p|
@@ -27,5 +26,4 @@ ActiveAdmin.register Post do
     end
     f.buttons
   end
-
 end

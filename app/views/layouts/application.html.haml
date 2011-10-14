@@ -24,7 +24,9 @@
           = link_to "Nick Barth", :root, :class => "tagline"
       %nav.grid_3
         %ul#nav
-          %li{ :class => ("active" unless current_page? page_path(:work) or current_page? page_path(:about)) }= link_to "Blog", :root
+          - puts "----------- -- - - -- - - - -- -----------"
+          - puts pages.detect {|p| current_page? page_path(p) }
+          %li{ :class => ("active" unless pages.detect {|p| current_page? page_path(p) }) }= link_to "Blog", :root
           - for page in pages
             %li{ :class => ("active" if current_page? page_path(page)) }= link_to page, page_path(page)
     #main.grid_9

@@ -7,4 +7,12 @@ ActiveAdmin.register Page do
     column "Published Date", :created_at
   end
 
+  member_action :update do
+    page = Page.find(:first, :conditions => { :name => params[:id]} )
+    page.name =  params[:page][:name]
+    page.body =  params[:page][:body]
+    page.save
+    redirect_to :back, :notice => "Page Updated"
+  end
+
 end
