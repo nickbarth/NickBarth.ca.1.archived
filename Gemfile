@@ -17,6 +17,9 @@ gem 'haml'
 gem 'kaminari'
 gem 'redcarpet'
 
+# Rack 1.3.4 is Broken Currently
+gem 'rack', '1.3.3'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
