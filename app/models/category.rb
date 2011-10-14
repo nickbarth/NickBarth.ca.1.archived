@@ -8,4 +8,7 @@ class Category < ActiveRecord::Base
   def to_s
     title
   end
+
+  validates :title,     :presence => true
+  default_scope :order => :title
 end

@@ -1,5 +1,4 @@
 class Page < ActiveRecord::Base
-
   def self.find_by_iname(name)
     find(:first, :conditions => ['name like ?', name])
   end
@@ -12,4 +11,6 @@ class Page < ActiveRecord::Base
     name
   end
 
+  validates :name,     :presence => true
+  validates :body,      :presence => true
 end
