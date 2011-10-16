@@ -8,6 +8,7 @@ NickbarthCa::Application.routes.draw do
   resources :posts, :only => [:index, :show] do
     collection do
       get "page/:page" => "posts#index"
+      get "feed" => "posts#feed"
     end
   end
 

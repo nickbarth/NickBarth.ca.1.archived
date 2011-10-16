@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   end
 
   def to_param
-    name
+    name.parameterize
   end
 
   def to_s
@@ -12,5 +12,5 @@ class Page < ActiveRecord::Base
   end
 
   validates :name,     :presence => true
-  validates :body,      :presence => true
+  validates :body,     :presence => true
 end

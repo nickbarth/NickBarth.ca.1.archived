@@ -18,7 +18,7 @@ ActiveAdmin.register Post do
   end
 
   form do |f|
-    f.inputs "Create Post" do
+    f.inputs do
       f.input :title
       f.input :created_at
       f.input :category

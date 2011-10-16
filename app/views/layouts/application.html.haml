@@ -11,6 +11,8 @@
   %meta{ :name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}/
   %meta{ :content => "The personal blog of a programmer and web developer Nick Barth.", :name => "description"}/
   %meta{ :content => "Nick Barth", :name => "author"}/
+  = auto_discovery_link_tag :atom, feed_posts_path(format: :atom)
+  = auto_discovery_link_tag :rss, feed_posts_path(format: :rss)  
   %title= "Nick Barth - Software Developer"
   = stylesheet_link_tag "application", :media => "all"
   = javascript_include_tag "modernizr", "respond"
@@ -40,10 +42,10 @@
         %li= link_to image_tag("github.png"), "http://github.com/nickbarth/"
         %li= link_to image_tag("linkedin.png"), "http://linkedin.com/in/barthn/"
         %li= link_to image_tag("email.png"), "mailto:nick@nickbarth.ca"
-      %h4 Categories
+      %h4 Recent Posts
       %ul.categories
-        - categories.each do |category|
-          %li= link_to raw("&raquo; #{category}"), category_path(category)
+        - Post.limit(4).collect.each do |category|
+          %li= link_to raw("&raquo; #{category}"), post_path(category)
   .clear
   %footer
     .container_12
