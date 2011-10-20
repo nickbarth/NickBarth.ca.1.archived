@@ -1,9 +1,8 @@
 class Post < ActiveRecord::Base
-  belongs_to :category
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
 
-  def to_param
-    "#{id}-#{title.parameterize}"
-  end
+  belongs_to :category
 
   def to_s
     title

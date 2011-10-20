@@ -1,13 +1,8 @@
 class Category < ActiveRecord::Base
   has_many :posts
 
-  def self.find_by_ititle(title)
-    find(:first, conditions: ['title like ?', title])
-  end
-
-  def to_param
-    title.parameterize
-  end
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
 
   def to_s
     title

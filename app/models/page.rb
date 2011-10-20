@@ -1,11 +1,6 @@
 class Page < ActiveRecord::Base
-  def self.find_by_iname(name)
-    find(:first, :conditions => ['name like ?', name])
-  end
-
-  def to_param
-    name.parameterize
-  end
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
 
   def to_s
     name

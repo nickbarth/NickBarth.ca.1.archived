@@ -7,11 +7,11 @@ ActiveAdmin.register Page do
     default_actions
   end
 
-  member_action :update do
-    page = Page.find_by_iname(params[:id])
-    page.name =  params[:page][:name]
-    page.body =  params[:page][:body]
-    page.save
-    redirect_to edit_admin_page_path(page.id), :notice => "Page Updated"
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :body
+    end
+    f.buttons
   end
 end

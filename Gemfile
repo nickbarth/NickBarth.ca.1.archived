@@ -17,6 +17,7 @@ gem 'haml'
 gem 'kaminari'
 gem 'redcarpet'
 gem 'paperclip'
+gem 'friendly_id', '~> 4.0.0.beta14'
 
 # Rack 1.3.4 is Broken Currently
 gem 'rack', '1.3.3'
