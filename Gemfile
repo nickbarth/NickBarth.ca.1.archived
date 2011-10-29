@@ -25,6 +25,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'launchy'
+  gem 'database_cleaner'
   if RUBY_PLATFORM.downcase.include?("darwin")
     gem 'rb-fsevent'
     gem 'growl'
