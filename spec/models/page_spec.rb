@@ -1,20 +1,22 @@
 require 'spec_helper'
 
 describe Page do
-  context "when a new category is created" do
+  context "a new page" do
     before(:all) do
       @page = Page.new
     end
   
-    it "should have a name and a body" do
-      @page.should respond_to :name
-      @page.should respond_to :body
+    subject { @page }
+
+    context "has a name and a body" do
+      it { should respond_to :name }
+      it { should respond_to :body }
     end
 
-    it "should require a name and a body" do
-      @page.should_not be_valid
-      @page.should have(1).error_on(:name)
-      @page.should have(1).error_on(:body)
+    context "requires a name and a body" do
+      it { should_not be_valid }
+      it { should have(1).error_on(:name) }
+      it { should have(1).error_on(:body) }
     end
   end
 end
