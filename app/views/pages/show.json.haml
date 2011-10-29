@@ -1,0 +1,5 @@
+- json = ActiveSupport::JSON
+!= json.encode({              |
+  name: @page.name,           |
+  body: markdown(@page.body), |
+})

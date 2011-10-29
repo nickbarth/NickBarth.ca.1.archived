@@ -6,6 +6,6 @@ class Page < ActiveRecord::Base
     name
   end
 
-  validates :name,     :presence => true
-  validates :body,     :presence => true
+  validates :name, :presence => true
+  validates :body, :presence => true
 end

@@ -1,0 +1,7 @@
+- json = ActiveSupport::JSON
+!= json.encode({                                                                        | 
+  title:    link_to(@post.title, @post),                                                |
+  date:     @post.created_at.strftime("%B #{@post.created_at.day.ordinalize}, %Y in "), |
+  category: link_to(@post.category, category_path(@post.category)),                     |
+  body:     markdown(@post.body),                                                       |
+})

@@ -8,9 +8,9 @@ class Post < ActiveRecord::Base
     title
   end
 
-  validates :title,     :presence => true
-  validates :body,      :presence => true
-  validates :category,  :presence => true
+  validates :title,    :presence => true
+  validates :body,     :presence => true
+  validates :category, :presence => true
 
   default_scope order("created_at DESC")
 end
