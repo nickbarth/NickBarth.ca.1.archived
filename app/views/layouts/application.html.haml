@@ -15,14 +15,15 @@
   = auto_discovery_link_tag :rss, feed_posts_path(format: :rss)  
   %title= "Nick Barth - Software Developer"
   = stylesheet_link_tag "application"
+  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans|Oswald', { rel: 'stylesheet' }
 %body
   #tborder
   .container_12
     %header
       #logo.grid_9
         .logo
-          = link_to "Software Developer", :root, :class => "nick"
-          = link_to "Nick Barth", :root, :class => "tagline"
+          = link_to "Software Developer", :root, :class => "title-header"
+          = link_to "Nick Barth", :root, :class => "name-header"
       %nav.grid_3
         %ul#nav
           %li{ :class => ("active" unless pages.detect {|p| current_page? page_path(p) }) }= link_to "Blog", :root
@@ -39,6 +40,7 @@
         on innovative web based projects and applications.
       %ul.listnav
         %li= link_to image_tag("github.png"), "http://github.com/nickbarth/"
+        %li= link_to image_tag("twitter.png"), "http://twitter.com/nickbarth"
         %li= link_to image_tag("linkedin.png"), "http://linkedin.com/in/barthn/"
         %li= link_to image_tag("email.png"), "mailto:nick@nickbarth.ca"
       %h4 Recent Posts
@@ -57,6 +59,7 @@
           %li= link_to page, page_path(page)
       %ul.listnav.fnav
         %li= link_to image_tag("github.png"), "http://github.com/nickbarth/"
+        %li= link_to image_tag("twitter.png"), "http://twitter.com/nickbarth"
         %li= link_to image_tag("linkedin.png"), "http://linkedin.com/in/barthn/"
         %li= link_to image_tag("email.png"), "mailto:nick@nickbarth.ca"
   :javascript
