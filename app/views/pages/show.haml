@@ -1,6 +1,8 @@
 %article
   %span.date
-    &nbsp;
-  %h1= @page.name
+    = link_to "Home", root_path
+    &gt;
+    = link_to @page.name, page_path(@page)
+  %h1= link_to @page.name, page_path(@page)
   %div
     = markdown @page.body

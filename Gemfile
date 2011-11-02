@@ -17,9 +17,8 @@ gem 'haml'
 gem 'kaminari'
 gem 'redcarpet'
 gem 'paperclip'
-
-# Rack 1.3.4 is Broken Currently
-gem 'rack', '1.3.3'
+gem 'nokogiri'
+gem 'albino'
 
 group :development, :test do
   gem 'rspec-rails'

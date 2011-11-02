@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  caches_page :index
+  caches_page :show
+  caches_page :feed
+
   def index
     @posts = Post.page(params[:page]).per 3
   end 

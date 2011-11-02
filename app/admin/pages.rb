@@ -10,7 +10,7 @@ ActiveAdmin.register Page do
   form do |f|
     f.inputs do
       f.input :name
-      f.input :body
+      f.input :body, input_html: { style: "font-family: 'Monaco, monospace';font-size:16px;" }
     end
     f.buttons
   end

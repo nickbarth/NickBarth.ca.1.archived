@@ -13,7 +13,7 @@ ActiveAdmin.register Post do
   show do
     h3 post.title
     div do
-      simple_format Markdown.new(post.body).to_html.html_safe
+      markdown post.body
     end
   end
 
@@ -22,7 +22,7 @@ ActiveAdmin.register Post do
       f.input :title
       f.input :created_at
       f.input :category
-      f.input :body
+      f.input :body, input_html: { style: "font-family: 'Monaco, monospace';font-size:16px;" }
     end
     f.buttons
   end

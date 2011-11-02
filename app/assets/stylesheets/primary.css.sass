@@ -12,18 +12,16 @@ $color3: #000
 $color4: #fff
 $color5: #a00
 
-article > div > p
-  margin-bottom: 20px
 
 #tborder
-  background: #fff
   background: rgba(220, 220, 220, 0.5)
   height: 20px
-  margin-bottom: 5px
+  margin-bottom: 15px
 
 body
   background-color: #eee
-  text-shadow: #FFFFFF 0 1px 0
+  text-shadow: 1px 1px #eee
+  background-color: #f5f5f5
 
 a, img
   -webkit-transition: all .2s ease-in-out
@@ -99,7 +97,7 @@ ul#nav
     > a
       color: #aaa
       margin: 10px 10px
-      padding: 5px 0
+      padding: 5px
       font-size: 15px
       line-height: 40px
       vertical-align: text-bottom
@@ -108,20 +106,32 @@ ul#nav
     > a:hover
       color: #555
     &.active > a
-      color: #555
-      border-bottom: 2px solid #555
+      color: #fff
+      border-radius: 5px 0
+      background: rgba(220, 220, 220, 1)
+      text-shadow: 1px 1px 1px #ccc
 
 /**
  * Header Logo
 
 .logo
+  border-radius: 10px 0
+  background: rgba(220, 220, 220, 0.3)
+  border-top: 1px solid #fafafa
+  border-bottom: 1px solid #ddd
+  width: 215px
+  height: 50px
+  padding: 10px
+  margin-bottom: 25px
   > a
     &.title-header
-      color: #222
+      color: $color3
+      text-shadow: 1px 1px 1px #fff
       font: normal 25px georgia, sans-serif
     &.name-header
       font: normal 30px / 25px sans-serif
       margin-bottom: 50px
+      text-shadow: 1px 1px 1px #fff
       display: block
       color: $color1
 
@@ -136,11 +146,14 @@ ul#nav
 
 article
   font-size: 14px
+  margin-bottom: 50px
 
-#main > article
+article > div > p
   margin-bottom: 20px
 
 article
+  .highlight
+    margin-bottom: 25px
   img
     margin: 10px auto
     display: block
@@ -170,9 +183,10 @@ article
 article
   h1
     margin-bottom: 20px
-    color: #000
+    color: $color1
     a, a:link, a:visited
       color: $color1
+      text-shadow: 1px 1px #fff
   .date
     font-size: 12px
     color: #777
@@ -184,6 +198,9 @@ article
  **
 
 #sidebar
+  border-radius: 10px
+  background: rgba(220, 220, 220, 0.3)
+  padding: 10px
   font-size: 14px
   a
     font-size: 16px
