@@ -1,4 +1,8 @@
 ActiveAdmin.register Page do
+  controller do
+    cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]  
+  end
+
   index do
     column :title do |p|
       link_to p.name, edit_admin_page_path(p.id)

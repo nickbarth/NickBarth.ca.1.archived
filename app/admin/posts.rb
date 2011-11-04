@@ -1,4 +1,8 @@
 ActiveAdmin.register Post do
+  controller do
+    cache_sweeper :post_sweeper, :only => [:create, :update, :destroy]  
+  end
+
   index do
     column "ID", :id
     column :title do |p|

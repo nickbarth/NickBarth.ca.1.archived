@@ -1,5 +1,4 @@
 ActiveAdmin::Dashboards.build do
-
   section "Pages" do
    ul do
      Page.all.collect do |page|
