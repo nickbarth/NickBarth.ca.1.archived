@@ -16,6 +16,6 @@ class PageSweeper < ActionController::Caching::Sweeper
   private
 
   def expire_cache(page)
-    expire_page(controller: 'pages', action: 'show', id: page.id)
+    expire_page(controller: '/pages', action: 'show', id: page.id)
   end
 end

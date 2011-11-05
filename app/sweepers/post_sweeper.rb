@@ -16,7 +16,7 @@ class PostSweeper < ActionController::Caching::Sweeper
   private
 
   def expire_cache(post)
-    expire_page(controller: 'posts', action: 'show', id: post.id)
-    expire_page(controller: 'posts', action: 'index')
+    expire_page(controller: '/posts', action: 'show', id: post.id)
+    expire_page(controller: '/posts', action: 'index')
   end
 end
