@@ -1,6 +1,6 @@
 ActiveAdmin.register Post do
   controller do
-    cache_sweeper :post_sweeper, :only => [:create, :update, :destroy]  
+    cache_sweeper :site_sweeper, :only => [:create, :update, :destroy]  
   end
 
   index do
