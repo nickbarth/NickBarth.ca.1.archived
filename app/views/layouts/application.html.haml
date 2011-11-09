@@ -29,9 +29,7 @@
           - for page in pages
             %li{ :class => ("active" if current_page? page_path(page)) }= link_to page, page_path(page)
     .clear
-    #main.grid_8{ data: { "pjax-container" => "" } }
-      - if notice
-        .notice= notice
+    #main.grid_8
       = yield
     #sidebar.grid_3
       %h4 About Me
